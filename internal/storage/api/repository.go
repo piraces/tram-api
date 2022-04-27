@@ -54,23 +54,3 @@ func (t *tramRepo) GetTramStops() (tramStops []tramcli.TramStop, err error) {
 	tramStops = *result.Stops
 	return
 }
-
-func (t *tramRepo) SaveTramStops(fileName string, tramStops []tramcli.TramStop) error {
-	// TODO: Implementation
-	//csvFile, err := os.Create(fileName)
-	//
-	//if err != nil {
-	//	fmt.Sprintf("Failed creating file: %s", err)
-	//	return err
-	//}
-	//
-	//csvwriter := csv.NewWriter(csvFile)
-	//
-	//for _, tramStop := range tramStops {
-	//	_ = csvwriter.Write(tramStop)
-	//}
-	//
-	//csvwriter.Flush()
-	//csvFile.Close()
-	return nil
-}

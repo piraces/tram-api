@@ -35,26 +35,12 @@ type Tram struct {
 	WaitMinutes int    `json:"minutos"`
 }
 
-// TramStopRepo definition of methods to access a data of tram stops
+// TramStopRepo definition of methods to access data of tram stops
 type TramStopRepo interface {
 	GetTramStops() ([]TramStop, error)
-	SaveTramStops(string, []TramStop) error
 }
 
-// NewTramStop initializes struct TramStops
-func NewTramStop(id string, uri, title string, coordinates *GeometryPoint,
-	lastUpdated string, messages []string, icon string, incomingTrams *[]Tram, description string) (t TramStop) {
-	t = TramStop{
-		TramStopId:    id,
-		URI:           uri,
-		Title:         title,
-		Coordinates:   coordinates,
-		LastUpdated:   lastUpdated,
-		Messages:      messages,
-		Icon:          icon,
-		IncomingTrams: incomingTrams,
-		Description:   description,
-	}
-
-	return
+// CSVRepo definition of methods to write data of tram stops
+type CSVRepo interface {
+	SaveCSV(*[]TramStop, string) error
 }
